@@ -1,10 +1,28 @@
 doctype html
-html
-    head
-        title Tx Viewer
-    body
-        h1= txNo
-        h2 Input Data:
-        p= input
-        h2 Name:
-        h3= output
+head
+  title Identity by HTML5 UP
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, user-scalable=no')
+  link(rel='stylesheet' href='assets/css/main.css')
+  noscript
+    link(rel='stylesheet' href='assets/css/noscript.css')
+#wrapper
+  section#main
+    header
+      span.avatar
+        img(src='images/avatar.jpg' alt='')
+      h1= output
+      p Transaction Hash:
+      p= txNo
+      p Block Number:
+      p= blockNumber
+    footer
+      ul.icons
+        li
+          p Contract Address:
+          p= contractAddress
+script.
+  if ('addEventListener' in window) {
+  window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\\bis-preload\b/, ''); });
+  document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\\.0)/) ? ' is-ie' : '');
+  }

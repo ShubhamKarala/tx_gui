@@ -84,6 +84,7 @@ const CertificateStoreABI = [
 abiDecoder.addABI(CertificateStoreABI);
 
 // Set Static Folder
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'public'));
 app.set('view engine', 'pug');
 
@@ -92,10 +93,10 @@ app.get('/tx/:txNo', (req, res) => {
     console.log(tx);
     if (tx != null && tx != "") {
         web3.eth.getTransaction(tx).then(data => {
-            // console.log(JSON.stringify(data));
+            console.log(data)
             const decodedData = abiDecoder.decodeMethod(data.input);
             console.log(decodedData.params[0].value)
-            res.render('tx', { txNo: tx, input: data.input, output: decodedData.params[0].value });
+            res.render('tx', { txNo: tx, output: decodedData.params[0].value, blockNumber: data.blockNumber, contractAddress: data.to });
         });
     } else {
         res.render('tx', { txNo: 'Unknown Tx No.' });
@@ -106,6 +107,6 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

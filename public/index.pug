@@ -1,6 +1,33 @@
 doctype html
-html
-    head
-        title Tx Viewer
-    body
-        h1 Viewer
+html(lang="en")
+	meta(http-equiv="Content-Type" content="text/html;charset=UTF-8")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible" content="ie=edge")
+		link(rel="icon" href="#" type="image/png" sizes="16x16")
+		title Tx Viewer
+		link(rel="stylesheet" href="code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css")
+		script(src="code.jquery.com/jquery-1.12.4.js")
+		script(src="code.jquery.com/ui/1.12.1/jquery-ui.js")
+		script(src="maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js")
+		link(rel="stylesheet" href="maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous")
+		link(rel="stylesheet" href="use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous")
+		link(rel="stylesheet" type="text/css" href="stylesheets/verify_style.css")
+	body
+		.col-lg-8.col-md-10.col-sm-12.col-12(style="text-align:center; color:beige")
+			h1 EDU BLOCK
+			h3 Certificate Verification Portal
+			h5 Powered by blockchain
+		.col-lg-6.col-md-10.col-sm-10.col-12
+			.form-group
+				label.mylabel.text-center(for="cert_name") Hash ID
+				input#userInput.myinput.form-control.form-control-user(type="text" name="cert_no" value="" required="" placeholder="Enter Your Hash Id")
+			.form-group
+				input.mybutton(type="submit" onclick="changeText2()" value="Verify")
+			script.
+				function changeText2() {
+				var userInput = document.getElementById('userInput').value;
+				window.location = "http://localhost:5001/tx/" + userInput;
+				}
+			script(color="184, 189, 196" opacity=".3" zindex="-2" count="150" src="javascripts/canvas-nest.js-master/dist/canvas-nest.js")
