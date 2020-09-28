@@ -1,0 +1,24 @@
+{
+  "name": "tx_gui",
+  "version": "1.0.0",
+  "description": "A webapp to view transaction data.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "shubhamkarala@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "abi-decoder": "^2.3.0",
+    "ethereumjs-tx": "^2.1.2",
+    "ethereumjs-util": "^7.0.5",
+    "express": "^4.17.1",
+    "pug": "^3.0.0",
+    "web3": "^1.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
